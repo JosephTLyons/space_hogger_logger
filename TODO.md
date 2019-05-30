@@ -17,13 +17,14 @@
 - Options to show / hide hidden files
 - Threshold size option for which files to show and not show
 - Make a README.md
-- Publish on GitHub.com
+- Publish on GitHub.com with new name
 - Should this ignore any files?
 - Should this use an iterative algorithm over recursion?
+- Reseerch and understand sorting mechanism
 
 # Potential Names
 
 - Space Wrangler
-- Space Hogger Logger
+- Space Hogger Logger / Hogger Logger
 - Space Culprit
 - Bit Blamer
