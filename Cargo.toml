@@ -5,3 +5,4 @@ authors = ["Joseph Lyons <josephtlyons@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+pretty-bytes = "0.2.2"
