@@ -23,7 +23,6 @@
 - Research and understand sorting mechanism
 - For readability, should I use a struct instead of a tuple for the vector?
 - Do I need to state “using crate..”?
-- Add gpl license
 
 # Potential Names
 
