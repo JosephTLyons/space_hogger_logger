@@ -33,6 +33,6 @@ fn recursively_get_items_in_dir(path: &Path, mut item_vec: &mut Vec<(String, u64
 
 fn print_item_vec(item_vec: &[(String, u64)]) {
     for item in item_vec {
-        println!("{}: {} bytes", item.0, convert(item.1 as f64));
+        println!("{}: {}", item.0, convert(item.1 as f64));
     }
 }
