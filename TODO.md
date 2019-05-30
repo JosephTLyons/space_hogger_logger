@@ -20,7 +20,8 @@
 - Publish on GitHub.com with new name
 - Should this ignore any files?
 - Should this use an iterative algorithm over recursion?
-- Reseerch and understand sorting mechanism
+- Research and understand sorting mechanism
+- For readability, should I use a struct instead of a tuple for the vector?
 
 # Potential Names
 
