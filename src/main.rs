@@ -4,6 +4,11 @@ use std::fs::{read_dir, File, ReadDir};
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
+struct FileObj {
+    path: String,
+    size_in_bytes: u64,
+}
+
 fn main() {
     let home_dir = dirs::home_dir()
         .expect("Couldn't get home directory")
@@ -18,7 +23,7 @@ fn main() {
 
     let paths_file_buf = BufReader::new(paths_file);
 
-    let mut item_vec: Vec<(String, u64)> = Vec::new();
+    let mut item_vec: Vec<FileObj> = Vec::new();
 
     for (line_num, line_result) in paths_file_buf.lines().enumerate() {
         match line_result {
@@ -36,11 +41,11 @@ fn main() {
 
     // item_vec.sort_by(|a, b| a.1.cmp(&b.1));
     // item_vec.sort_by(|(_, u1), (_, u2)| u1.cmp(u2));
-    item_vec.sort_unstable_by_key(|a| a.1);
+    item_vec.sort_unstable_by_key(|a| a.size_in_bytes);
     print_item_vec(&item_vec);
 }
 
-fn recursively_get_items_in_dir(path: &Path, mut item_vec: &mut Vec<(String, u64)>) {
+fn recursively_get_items_in_dir(path: &Path, mut item_vec: &mut Vec<FileObj>) {
     let dir_file_iter: ReadDir = read_dir(path).expect("Couldn't obtain item iter.");
 
     for item in dir_file_iter {
@@ -52,18 +57,20 @@ fn recursively_get_items_in_dir(path: &Path, mut item_vec: &mut Vec<(String, u64
         if item_metadata.is_dir() {
             recursively_get_items_in_dir(item_path, &mut item_vec);
         } else {
-            let item_path_str = item_path.to_str().expect("Could not create &str file path");
-            item_vec.push((String::from(item_path_str), item_metadata.len()));
+            item_vec.push(FileObj {
+                path: item_path.to_str().expect("Could not create &str file path").to_string(),
+                size_in_bytes: item_metadata.len(),
+            });
         }
     }
 }
 
-fn print_item_vec(item_vec: &[(String, u64)]) {
+fn print_item_vec(item_vec: &[FileObj]) {
     for item in item_vec {
         println!(
             "{}{}",
-            format!("{:>12}", convert(item.1 as f64) + ": "),
-            item.0
+            format!("{:>12}", convert(item.size_in_bytes as f64) + ": "),
+            item.path
         );
     }
 }

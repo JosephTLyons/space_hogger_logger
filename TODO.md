@@ -16,7 +16,6 @@
 - Should this ignore any files?
 - Should this use an iterative algorithm over recursion?
 - Research and understand sorting mechanism
-- For readability, should I use a struct instead of a tuple for the vector?
 - Test that file sizes are correctly by Pretty Bytes, and larger sizes as well
 - Update all the messages from the expect() functions to be more accurate
 - Should all results panic?  Maybe if the dir iter doesn't work, but not if a
