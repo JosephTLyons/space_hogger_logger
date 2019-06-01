@@ -16,7 +16,7 @@ impl ItemVector {
         }
     }
 
-    pub fn collect_items(&mut self, file_path: &Path) { // RENAME THIS TO SOMETHING BETTER
+    pub fn add_items_in_dir(&mut self, file_path: &Path) {
         self.recursively_get_items_in_dir(file_path);
     }
 

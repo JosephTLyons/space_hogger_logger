@@ -28,7 +28,7 @@ fn main() {
                 let path = Path::new(&line);
 
                 if path.exists() {
-                    item_vec.collect_items(&path);
+                    item_vec.add_items_in_dir(&path);
                 }
             }
             Err(_) => println!(
