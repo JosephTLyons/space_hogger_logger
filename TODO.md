@@ -23,3 +23,9 @@
 - Format output with largest expect size string
 - Either add an '/' at root or before each file path, probably the root
 - Should printing happen in reverse order?
+- Add Display trait?
+- Divide code into files if I can put them in structs
+
+- Options
+    - Set threshold
+    - Report hidden files
