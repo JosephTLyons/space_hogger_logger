@@ -17,12 +17,10 @@ impl ItemVector {
     }
 
     pub fn collect_items(&mut self, file_path: &Path) {
-        let mut item_vec_temp: Vec<FileObj> = Vec::new();
-        self.recursively_get_items_in_dir(file_path, &mut item_vec_temp);
-        self.item_vec = item_vec_temp;
+        self.recursively_get_items_in_dir(file_path);
     }
 
-    fn recursively_get_items_in_dir(&self, path: &Path, item_vec: &mut Vec<FileObj>) {
+    fn recursively_get_items_in_dir(&mut self, path: &Path) {
         let dir_file_iter: ReadDir = read_dir(path).expect("Couldn't obtain item iter.");
 
         for item in dir_file_iter {
@@ -32,9 +30,9 @@ impl ItemVector {
             let item_metadata = item.metadata().expect("Couldn't get item's metadata");
 
             if item_metadata.is_dir() {
-                self.recursively_get_items_in_dir(item_path, item_vec);
+                self.recursively_get_items_in_dir(item_path);
             } else {
-                item_vec.push(FileObj {
+                self.item_vec.push(FileObj {
                     path: item_path
                         .to_str()
                         .expect("Could not create &str file path")
