@@ -13,7 +13,8 @@ fn main() {
 
     let paths_file = File::open(
         home_dir + "/Library/Application Support/The Lyons' Den Labs/space_hogger_logger_paths.txt",
-    ).expect("Couldn't open file or it does not exist.");
+    )
+    .expect("Couldn't open file or it does not exist.");
 
     let paths_file_buf = BufReader::new(paths_file);
 
@@ -25,14 +26,17 @@ fn main() {
                 if Path::new(&line).exists() {
                     recursively_get_items_in_dir(Path::new(&line), &mut item_vec);
                 }
-            },
-            Err(_) => println!("Could not convert path to string on file line: {}", line_num),
+            }
+            Err(_) => println!(
+                "Could not convert path to string on file line: {}",
+                line_num
+            ),
         }
     }
 
     // item_vec.sort_by(|a, b| a.1.cmp(&b.1));
     // item_vec.sort_by(|(_, u1), (_, u2)| u1.cmp(u2));
-    item_vec. sort_unstable_by_key(|a| a.1);
+    item_vec.sort_unstable_by_key(|a| a.1);
     print_item_vec(&item_vec);
 }
 
@@ -47,9 +51,7 @@ fn recursively_get_items_in_dir(path: &Path, mut item_vec: &mut Vec<(String, u64
 
         if item_metadata.is_dir() {
             recursively_get_items_in_dir(item_path, &mut item_vec);
-        }
-
-        else {
+        } else {
             let item_path_str = item_path.to_str().expect("Could not create &str file path");
             item_vec.push((String::from(item_path_str), item_metadata.len()));
         }
