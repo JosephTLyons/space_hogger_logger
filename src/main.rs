@@ -18,7 +18,11 @@ fn main() {
     let mut item_vec: ItemVector = ItemVector::new();
 
     for default_path in default_paths {
-        item_vec.add_items_in_dir(&Path::new(&home_dir).join(Path::new(default_path)));
+        let assembled_path = Path::new(&home_dir).join(Path::new(default_path));
+
+        if assembled_path.exists() {
+            item_vec.add_items_in_dir(&assembled_path);
+        }
     }
 
     // Code for retrieving extra user defined paths
