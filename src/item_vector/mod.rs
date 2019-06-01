@@ -16,7 +16,7 @@ impl ItemVector {
         }
     }
 
-    pub fn collect_items(&mut self, file_path: &Path) {
+    pub fn collect_items(&mut self, file_path: &Path) { // RENAME THIS TO SOMETHING BETTER
         self.recursively_get_items_in_dir(file_path);
     }
 
@@ -44,6 +44,8 @@ impl ItemVector {
     }
 
     pub fn sort(&mut self) {
+        // item_vec.sort_by(|a, b| a.1.cmp(&b.1));
+        // item_vec.sort_by(|(_, u1), (_, u2)| u1.cmp(u2));
         self.item_vec.sort_unstable_by_key(|a| a.size_in_bytes);
     }
 

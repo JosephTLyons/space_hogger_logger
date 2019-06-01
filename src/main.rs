@@ -37,9 +37,7 @@ fn main() {
             ),
         }
     }
-
-    // item_vec.sort_by(|a, b| a.1.cmp(&b.1));
-    // item_vec.sort_by(|(_, u1), (_, u2)| u1.cmp(u2));
+    
     item_vec.sort();
     item_vec.print();
 }
