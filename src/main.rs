@@ -1,18 +1,43 @@
-extern crate pretty_bytes;
+use dirs;
 use pretty_bytes::converter::convert;
-use std::fs::{read_dir, ReadDir};
+use std::fs::{read_dir, File, ReadDir};
+use std::io::{BufRead, BufReader};
 use std::path::Path;
 
 fn main() {
+    let home_dir = dirs::home_dir()
+        .expect("Couldn't get home directory")
+        .to_str()
+        .expect("Couldn't parse home directory path to &str")
+        .to_string();
+
+    let paths_file = File::open(
+        home_dir + "/Library/Application Support/The Lyons' Den Labs/space_hogger_logger_paths.txt",
+    ).expect("Couldn't open file or it does not exist.");
+
+    let paths_file_buf = BufReader::new(paths_file);
+
     let mut item_vec: Vec<(String, u64)> = Vec::new();
-    let starting_loc = Path::new("/Users/josephlyons/Books");
-    recursively_get_items_in_dir(starting_loc, &mut item_vec);
-    item_vec.sort_by(|a, b| b.1.cmp(&a.1));
+
+    for (line_num, line_result) in paths_file_buf.lines().enumerate() {
+        match line_result {
+            Ok(line) => {
+                if Path::new(&line).exists() {
+                    recursively_get_items_in_dir(Path::new(&line), &mut item_vec);
+                }
+            },
+            Err(_) => println!("Could not convert path to string on file line: {}", line_num),
+        }
+    }
+
+    // item_vec.sort_by(|a, b| a.1.cmp(&b.1));
+    // item_vec.sort_by(|(_, u1), (_, u2)| u1.cmp(u2));
+    item_vec. sort_unstable_by_key(|a| a.1);
     print_item_vec(&item_vec);
 }
 
 fn recursively_get_items_in_dir(path: &Path, mut item_vec: &mut Vec<(String, u64)>) {
-    let dir_file_iter: ReadDir = read_dir(path).expect("Couldn't obtain iter.");
+    let dir_file_iter: ReadDir = read_dir(path).expect("Couldn't obtain item iter.");
 
     for item in dir_file_iter {
         let item = item.expect("Wasn't able to obtain item");
@@ -33,6 +58,10 @@ fn recursively_get_items_in_dir(path: &Path, mut item_vec: &mut Vec<(String, u64
 
 fn print_item_vec(item_vec: &[(String, u64)]) {
     for item in item_vec {
-        println!("{}: {}", item.0, convert(item.1 as f64));
+        println!(
+            "{}{}",
+            format!("{:>12}", convert(item.1 as f64) + ": "),
+            item.0
+        );
     }
 }
