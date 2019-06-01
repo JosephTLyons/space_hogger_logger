@@ -252,7 +252,7 @@ version = "0.1.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "space_culprit"
+name = "space_hogger_logger"
 version = "0.1.0"
 dependencies = [
  "dirs 2.0.1 (registry+https://github.com/rust-lang/crates.io-index)",

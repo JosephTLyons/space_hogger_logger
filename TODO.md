@@ -11,8 +11,7 @@
 - Options to show / hide hidden files
 - Threshold size option for which files to show and not show
 - Make a README.md
-- Publish on GitHub.com with new name
-    - Space Hogger Logger (with graphic)
+    - With Space Hogger Logger graphic
 - Should this ignore any files?
 - Should this use an iterative algorithm over recursion?
 - Research and understand sorting mechanism
