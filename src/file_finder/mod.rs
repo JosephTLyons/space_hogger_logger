@@ -6,21 +6,21 @@ use std::fs::{read_dir, ReadDir};
 use std::path::Path;
 
 pub struct FileFinder {
-    item_vec: Vec<FileObject>,
+    file_vec: Vec<FileObject>,
 }
 
 impl FileFinder {
     pub fn new() -> Self {
         FileFinder {
-            item_vec: Vec::new(),
+            file_vec: Vec::new(),
         }
     }
 
-    pub fn add_items_in_dir(&mut self, file_path: &Path) {
-        self.recursively_get_items_in_dir(file_path);
+    pub fn add_files_in_dir(&mut self, file_path: &Path) {
+        self.recursively_get_files_in_dir(file_path);
     }
 
-    fn recursively_get_items_in_dir(&mut self, path: &Path) {
+    fn recursively_get_files_in_dir(&mut self, path: &Path) {
         let dir_file_iter: ReadDir = read_dir(path).expect("Couldn't obtain item iter.");
 
         for item in dir_file_iter {
@@ -30,9 +30,9 @@ impl FileFinder {
             let item_metadata = item.metadata().expect("Couldn't get item's metadata");
 
             if item_metadata.is_dir() {
-                self.recursively_get_items_in_dir(item_path);
+                self.recursively_get_files_in_dir(item_path);
             } else {
-                self.item_vec.push(FileObject {
+                self.file_vec.push(FileObject {
                     path: item_path
                         .to_str()
                         .expect("Could not create &str file path")
@@ -46,11 +46,11 @@ impl FileFinder {
     pub fn sort(&mut self) {
         // item_vec.sort_by(|a, b| a.1.cmp(&b.1));
         // item_vec.sort_by(|(_, u1), (_, u2)| u1.cmp(u2));
-        self.item_vec.sort_unstable_by_key(|a| a.size_in_bytes);
+        self.file_vec.sort_unstable_by_key(|a| a.size_in_bytes);
     }
 
     pub fn print(&self) {
-        for item in &self.item_vec {
+        for item in &self.file_vec {
             println!(
                 "{}{}",
                 format!("{:>12}", convert(item.size_in_bytes as f64) + ": "),
