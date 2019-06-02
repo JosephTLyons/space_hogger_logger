@@ -2,6 +2,7 @@ mod file_obj;
 
 use file_obj::FileObject;
 use pretty_bytes::converter::convert;
+use std::fmt;
 use std::fs::{read_dir, ReadDir};
 use std::path::Path;
 
@@ -48,14 +49,24 @@ impl FileFinder {
         // file_vec.sort_by(|(_, u1), (_, u2)| u1.cmp(u2));
         self.file_vec.sort_unstable_by_key(|a| a.size_in_bytes);
     }
+}
 
-    pub fn print(&self) {
+impl fmt::Display for FileFinder {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for file in &self.file_vec {
-            println!(
+            let output_string = writeln!(
+                f,
                 "{}{}",
                 format!("{:>12}", convert(file.size_in_bytes as f64) + ": "),
                 file.path
             );
+
+            match output_string {
+                Ok(_) => {},
+                Err(e) => return Err(e),
+            }
         }
+
+        Ok(())
     }
 }

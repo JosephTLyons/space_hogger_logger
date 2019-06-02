@@ -15,7 +15,7 @@ fn main() {
     get_files_from_user_defined_paths(&mut file_finder, home_dir_path);
 
     file_finder.sort();
-    file_finder.print();
+    println!("{}", file_finder);
 }
 
 fn get_files_from_default_paths(file_finder: &mut FileFinder, home_dir: &Path) {
