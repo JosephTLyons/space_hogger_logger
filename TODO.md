@@ -24,6 +24,8 @@
 - Should printing happen in reverse order?
 - Add Display trait?
 - Divide code into files if I can put them in structs
+- Add more default paths
+- Rename the file "shlogger_user_defined_paths.txt" or something shorter?
 
 - Options
     - Set threshold
