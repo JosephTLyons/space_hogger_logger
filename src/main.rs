@@ -37,7 +37,6 @@ fn get_items_from_user_defined_paths(item_vec: &mut ItemVector, home_dir: &Path)
     ));
 
     let paths_file = File::open(path).expect("Couldn't open file or it does not exist.");
-
     let paths_file_buf = BufReader::new(paths_file);
 
     for (line_num, line_result) in paths_file_buf.lines().enumerate() {
