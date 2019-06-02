@@ -10,12 +10,12 @@
 - Polish paths file system
 - Options to show / hide hidden files
 - Threshold size option for which files to show and not show
-- Make a README.md
-    - With Space Hogger Logger graphic
+- Add Space Hogger Logger graphic to README.md
 - Should this ignore any files?
 - Should this use an iterative algorithm over recursion?
 - Research and understand sorting mechanism
-- Test that file sizes are correctly by Pretty Bytes, and larger sizes as well
+- Test that file sizes are correctly reported by Pretty Bytes, and larger sizes
+  as well
 - Update all the messages from the expect() functions to be more accurate
 - Should all results panic?  Maybe if the dir iter doesn't work, but not if a
   single file doesn't work
@@ -26,6 +26,7 @@
 - Divide code into files if I can put them in structs
 - Add more default paths
 - Rename the file "shlogger_user_defined_paths.txt" or something shorter?
+- Get both functions in main to be similar using similar inputs and methods
 
 - Options
     - Set threshold
