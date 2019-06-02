@@ -1,17 +1,17 @@
 mod file_obj;
 
-use file_obj::FileObj;
+use file_obj::FileObject;
 use pretty_bytes::converter::convert;
 use std::fs::{read_dir, ReadDir};
 use std::path::Path;
 
-pub struct ItemVector {
-    item_vec: Vec<FileObj>,
+pub struct FileFinder {
+    item_vec: Vec<FileObject>,
 }
 
-impl ItemVector {
+impl FileFinder {
     pub fn new() -> Self {
-        ItemVector {
+        FileFinder {
             item_vec: Vec::new(),
         }
     }
@@ -32,7 +32,7 @@ impl ItemVector {
             if item_metadata.is_dir() {
                 self.recursively_get_items_in_dir(item_path);
             } else {
-                self.item_vec.push(FileObj {
+                self.item_vec.push(FileObject {
                     path: item_path
                         .to_str()
                         .expect("Could not create &str file path")

@@ -1,13 +1,13 @@
-mod item_vector;
+mod file_finder;
 
 use dirs;
-use item_vector::ItemVector;
+use file_finder::FileFinder;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
 fn main() {
-    let mut item_vec: ItemVector = ItemVector::new();
+    let mut item_vec: FileFinder = FileFinder::new();
     let home_dir_path_buf = dirs::home_dir().expect("Couldn't get home directory");
     let home_dir_path = home_dir_path_buf.as_path();
 
@@ -18,7 +18,7 @@ fn main() {
     item_vec.print();
 }
 
-fn get_items_from_default_paths(item_vec: &mut ItemVector, home_dir: &Path) {
+fn get_items_from_default_paths(item_vec: &mut FileFinder, home_dir: &Path) {
     let paths = include_str!("default_paths.txt").lines();
 
     for path in paths {
@@ -30,7 +30,7 @@ fn get_items_from_default_paths(item_vec: &mut ItemVector, home_dir: &Path) {
     }
 }
 
-fn get_items_from_user_defined_paths(item_vec: &mut ItemVector, home_dir: &Path) {
+fn get_items_from_user_defined_paths(item_vec: &mut FileFinder, home_dir: &Path) {
     // Code for retrieving extra user defined paths
     let path = home_dir.join(Path::new(
         "Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt",
