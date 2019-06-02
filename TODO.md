@@ -7,7 +7,6 @@
 - Should this use an iterative algorithm over recursion?
 - Test that file sizes are correctly reported by Pretty Bytes, and larger sizes
   as well
-- Update all the messages from the expect() functions to be more accurate
 - Should all results panic?  Maybe if the dir iter doesn't work, but not if a
   single file doesn't work
 - Add more default paths

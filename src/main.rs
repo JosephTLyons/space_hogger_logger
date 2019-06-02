@@ -8,7 +8,7 @@ use std::path::Path;
 
 fn main() {
     let mut file_finder: FileFinder = FileFinder::new();
-    let home_dir_path_buf = dirs::home_dir().expect("Couldn't get home directory");
+    let home_dir_path_buf = dirs::home_dir().expect("Couldn't obtain home directory.");
     let home_dir_path = home_dir_path_buf.as_path();
 
     get_files_from_default_paths(&mut file_finder, home_dir_path);
@@ -36,7 +36,7 @@ fn get_files_from_user_defined_paths(file_finder: &mut FileFinder, home_dir: &Pa
         "Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt",
     ));
 
-    let paths_file = File::open(path).expect("Couldn't open file or it does not exist.");
+    let paths_file = File::open(path).expect("Error opening file.");
     let paths_file_buf = BufReader::new(paths_file);
 
     for (line_num, line_result) in paths_file_buf.lines().enumerate() {

@@ -25,10 +25,10 @@ impl FileFinder {
         let dir_file_iter: ReadDir = read_dir(path).expect("Couldn't obtain file iter.");
 
         for file in dir_file_iter {
-            let file = file.expect("Wasn't able to obtain file");
+            let file = file.expect("Wasn't able to obtain file.");
             let file_path_buf = file.path();
             let file_path = file_path_buf.as_path();
-            let file_metadata = file.metadata().expect("Couldn't get file's metadata");
+            let file_metadata = file.metadata().expect("Couldn't get file's metadata.");
 
             if file_metadata.is_dir() {
                 self.recursively_get_files_in_dir(file_path);
@@ -36,7 +36,7 @@ impl FileFinder {
                 self.file_vec.push(FileObject {
                     path: file_path
                         .to_str()
-                        .expect("Could not create &str file path")
+                        .expect("Could not create &str file path.")
                         .to_string(),
                     size_in_bytes: file_metadata.len(),
                 });
