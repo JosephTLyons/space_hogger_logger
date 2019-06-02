@@ -1,13 +1,13 @@
 # TODO
 
-## Required:
+## Required
 
 - Add more default paths
     - Add applications folder (figure out permissions workaround)
 - Not all results should panic (expect()), the app should continue if some
   things fail.
 
-## Nice Additions:
+## Nice Additions
 
 - A cleaner way to print paths (use `...` to break up the path by default,
   the full path could be displayed with a verbose option)
