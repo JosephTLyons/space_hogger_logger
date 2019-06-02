@@ -9,6 +9,6 @@ prints the files out, displaying the largest files at the bottom of the list;
 these files are the space hoggers, and should be considered first when looking
 for ways to make space.
 
-`space_hogger_logger` is inspired by (Daisy Disk)[https://daisydiskapp.com].
+`space_hogger_logger` is inspired by [Daisy Disk](https://daisydiskapp.com).
 
 *Note*: `space_hogger_logger` only works on macOS currently.
