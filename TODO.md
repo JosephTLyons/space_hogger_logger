@@ -28,3 +28,4 @@
 - README.md
     - Give more details and clean it up
     - Add Space Hogger Logger graphic
+    - Add a screenshot of it in action
