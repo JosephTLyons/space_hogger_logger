@@ -1,7 +1,7 @@
 mod file_obj;
 
 use file_obj::FileObject;
-use pretty_bytes::converter::convert;
+use pretty_bytes::converter::convert as bytes_to_units;
 use std::fmt;
 use std::fs::{read_dir, ReadDir};
 use std::path::Path;
@@ -57,7 +57,7 @@ impl fmt::Display for FileFinder {
             let output_string = writeln!(
                 f,
                 "{}{}",
-                format!("{:>12}", convert(file.size_in_bytes as f64) + ": "),
+                format!("{:>12}", bytes_to_units(file.size_in_bytes as f64) + ": "),
                 file.path
             );
 
