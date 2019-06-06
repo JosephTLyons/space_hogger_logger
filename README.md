@@ -17,12 +17,12 @@ Additional user-defined paths can be included in a file with a path of
 
 space_hogger_logger is not held accountable for any bugs that may result in file
 loss or corruption.  space_hogger_logger uses only the Rust std library function
-calls and one third-party crate ([dirs](https://crates.io/crates/dirs)) to find
-paths and run through files / directories; there is no custom code written to
-deal with those tasks, so as long as the std library code and the third-party
-crate are both solid and dependable, then there shouldn't be any issues.  I've
-not had a single issue with the tool on my machine, but I've not tested it
-elsewhere.
+calls and one third-party crate
+([directories](https://crates.io/crates/directories) to find paths and run
+through files / directories; there is no custom code written to deal with
+those tasks, so as long as the std library code and the third-party crate are
+both solid and dependable, then there shouldn't be any issues.  I've not had a
+single issue with the tool on my machine, but I've not tested it elsewhere.
 
 It should be noted that space_hogger_logger does not save any information, it
 merely prints file paths, and their associated file size, to the terminal
