@@ -16,50 +16,23 @@ fn main() {
     println!("{}", file_finder);
 }
 
-fn get_files_from_default_paths(file_finder: &mut FileFinder) {
+fn get_files_from_default_paths(mut file_finder: &mut FileFinder) {
     let user_dirs: UserDirs = UserDirs::new().expect("Couldn't create a UserDirs object.");
 
-    file_finder.add_files_in_dir(
-        user_dirs
-            .audio_dir()
-            .expect("Couldn't obtain audio folder."),
-    );
+    add_path_to_file_finder(&mut file_finder, user_dirs.audio_dir(), "audio");
+    add_path_to_file_finder(&mut file_finder, user_dirs.desktop_dir(), "desktop");
+    add_path_to_file_finder(&mut file_finder, user_dirs.document_dir(), "document");
+    add_path_to_file_finder(&mut file_finder, user_dirs.download_dir(), "download");
+    add_path_to_file_finder(&mut file_finder, user_dirs.picture_dir(), "picture");
+    add_path_to_file_finder(&mut file_finder, user_dirs.public_dir(), "public");
+    add_path_to_file_finder(&mut file_finder, user_dirs.video_dir(), "video");
+}
 
-    file_finder.add_files_in_dir(
-        user_dirs
-            .desktop_dir()
-            .expect("Couldn't obtain desktop folder."),
-    );
-
-    file_finder.add_files_in_dir(
-        user_dirs
-            .document_dir()
-            .expect("Couldn't obtain documents folder."),
-    );
-
-    file_finder.add_files_in_dir(
-        user_dirs
-            .download_dir()
-            .expect("Couldn't obtain download folder."),
-    );
-
-    file_finder.add_files_in_dir(
-        user_dirs
-            .picture_dir()
-            .expect("Couldn't obtain picture folder."),
-    );
-
-    file_finder.add_files_in_dir(
-        user_dirs
-            .public_dir()
-            .expect("Couldn't obtain public folder."),
-    );
-
-    file_finder.add_files_in_dir(
-        user_dirs
-            .video_dir()
-            .expect("Couldn't obtain video folder."),
-    );
+fn add_path_to_file_finder(file_finder: &mut FileFinder, path_option: Option<&Path>, folder: &str) {
+    match path_option {
+        Some(path) => file_finder.add_files_in_dir(path),
+        None => println!("Couldn't open {} directory.", folder),
+    }
 }
 
 fn get_files_from_user_defined_paths(file_finder: &mut FileFinder) {
