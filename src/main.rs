@@ -26,7 +26,8 @@ fn get_files_from_default_paths(file_finder: &mut FileFinder, home_dir: &Path) {
         "Downloads",
         "Movies",
         "Music",
-        "Pictures"];
+        "Pictures",
+    ];
 
     for path in paths_in_home_folder {
         let assembled_path = home_dir.join(Path::new(path));
