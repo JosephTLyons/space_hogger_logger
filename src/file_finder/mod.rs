@@ -45,7 +45,7 @@ impl FileFinder {
     }
 
     pub fn sort_by_file_size(&mut self) {
-        self.file_vec.sort_unstable_by_key(|a| a.size_in_bytes);
+        self.file_vec.sort_by_key(|element| element.size_in_bytes);
     }
 }
 
