@@ -11,11 +11,11 @@ files, sorted by file size, within those directories.  Files at the bottom of
 the list are the largest and are considered space hoggers.
 
 Additional user-defined paths can be specified in a file in the follow
-directory:
+directoires:
 
-Linux:	 `/home/alice/.local/share/The Lyons' Den Labs/shlogger_extra_paths.txt` <br/>
-macOS:   `/Users/Alice/Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt` <br/>
-Windows: `C:\Users\Alice\AppData\Roaming/The Lyons' Den Labs/shlogger_extra_paths.txt`
+- Linux:	 `/home/alice/.local/share/The Lyons' Den Labs/shlogger_extra_paths.txt`
+- macOS:   `/Users/Alice/Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt`
+- Windows: `C:\Users\Alice\AppData\Roaming/The Lyons' Den Labs/shlogger_extra_paths.txt`
 
 Example:
 
