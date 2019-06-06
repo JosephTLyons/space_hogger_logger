@@ -2,7 +2,7 @@ mod file_finder;
 
 use dirs;
 use file_finder::FileFinder;
-use std::fs::{File, OpenOptions};
+use std::fs::{OpenOptions};
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
