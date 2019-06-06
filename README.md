@@ -10,8 +10,20 @@ directories specified in the `default_paths.txt` and produces a list of all the
 files, sorted by file size, within those directories.  Files at the bottom of
 the list are the largest and are considered space hoggers.
 
-Additional user-defined paths can be included in a file with a path of
-`Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt`.
+Additional user-defined paths can be specified in a file in the follow
+directory:
+
+Linux:	 `/home/alice/.local/share/The Lyons' Den Labs/shlogger_extra_paths.txt`
+macOS:   `/Users/Alice/Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt`
+Windows: `C:\Users\Alice\AppData\Roaming/The Lyons' Den Labs/shlogger_extra_paths.txt`
+
+Example:
+
+In the `shlogger_extra_paths.txt` file on macOS:
+```txt
+/Users/josephlyons/Dropbox
+...
+```
 
 ## Disclaimers and Notes
 
@@ -27,5 +39,3 @@ single issue with the tool on my machine, but I've not tested it elsewhere.
 It should be noted that space_hogger_logger does not save any information, it
 merely prints file paths, and their associated file size, to the terminal
 window.
-
-Lastly, space_hogger_logger only works on macOS currently.
