@@ -11,7 +11,7 @@ files, sorted by file size, within those directories.  Files at the bottom of
 the list are the largest and are considered space hoggers.
 
 Additional user-defined paths can be specified in a file in the follow
-directoires:
+directories:
 
 - Linux:	 `/home/alice/.local/share/The Lyons' Den Labs/shlogger_extra_paths.txt`
 - macOS:   `/Users/Alice/Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt`
@@ -24,6 +24,9 @@ In the `shlogger_extra_paths.txt` file on macOS:
 /Users/josephlyons/Dropbox
 ...
 ```
+
+Note: Running the application once will automatically create the
+`shlogger_extra_paths.txt`file and all needed parent directories.
 
 ## Disclaimers and Notes
 
