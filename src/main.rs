@@ -19,9 +19,16 @@ fn main() {
 }
 
 fn get_files_from_default_paths(file_finder: &mut FileFinder, home_dir: &Path) {
-    let paths = include_str!("default_paths.txt").lines();
+    let paths_in_home_folder: Vec<&str> = vec![
+        "Applications",
+        "Desktop",
+        "Documents",
+        "Downloads",
+        "Movies",
+        "Music",
+        "Pictures"];
 
-    for path in paths {
+    for path in paths_in_home_folder {
         let assembled_path = home_dir.join(Path::new(path));
 
         if assembled_path.exists() {
@@ -31,7 +38,7 @@ fn get_files_from_default_paths(file_finder: &mut FileFinder, home_dir: &Path) {
 }
 
 fn get_files_from_user_defined_paths(file_finder: &mut FileFinder, home_dir: &Path) {
-    // Code for retrieving extra user defined paths
+    // Code for retrieving extra user-defined paths
     let path = home_dir.join(Path::new(
         "Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt",
     ));
