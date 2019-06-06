@@ -2,7 +2,7 @@ mod file_finder;
 
 use dirs;
 use file_finder::FileFinder;
-use std::fs::File;
+use std::fs::{File, OpenOptions};
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
@@ -44,7 +44,13 @@ fn get_files_from_user_defined_paths(file_finder: &mut FileFinder, home_dir: &Pa
         "Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt",
     ));
 
-    let paths_file = File::open(path).expect("Error opening file.");
+    let paths_file = OpenOptions::new()
+        .read(true)
+        .write(true)
+        .create(true)
+        .open(path)
+        .expect("Couldn't open user-defined paths file");
+
     let paths_file_buf = BufReader::new(paths_file);
 
     for (line_num, line_result) in paths_file_buf.lines().enumerate() {
