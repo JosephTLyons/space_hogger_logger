@@ -66,8 +66,7 @@ fn get_files_from_user_defined_paths(file_finder: &mut FileFinder) {
     let base_dirs: BaseDirs = BaseDirs::new().expect("Couldn't create a BaseDirs object");
     let lyons_den_dir = base_dirs.data_dir().join("The Lyons' Den Labs");
 
-    create_dir_all(&lyons_den_dir)
-        .expect("Could not create the path for user-defined paths");
+    create_dir_all(&lyons_den_dir).expect("Could not create the path for user-defined paths");
 
     let shlogger_exta_paths_path = lyons_den_dir.join(Path::new("shlogger_extra_paths.txt"));
 
