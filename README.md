@@ -13,9 +13,9 @@ the list are the largest and are considered space hoggers.
 Additional user-defined paths can be specified in a file in the follow
 directories:
 
-- Linux:   `/home/alice/.local/share/The Lyons' Den Labs/shlogger_extra_paths.txt`
-- macOS:   `/Users/Alice/Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt`
-- Windows: `C:\Users\Alice\AppData\Roaming/The Lyons' Den Labs/shlogger_extra_paths.txt`
+- Linux:   `/home/USERNAME/.local/share/The Lyons' Den Labs/shlogger_extra_paths.txt`
+- macOS:   `/Users/USERNAME/Library/Application Support/The Lyons' Den Labs/shlogger_extra_paths.txt`
+- Windows: `C:\Users\USERNAME\AppData\Roaming/The Lyons' Den Labs/shlogger_extra_paths.txt`
 
 Example:
 
