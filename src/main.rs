@@ -48,7 +48,7 @@ fn get_files_from_user_defined_paths(file_finder: &mut FileFinder) {
         .write(true)
         .create(true)
         .open(shlogger_exta_paths_path)
-        .expect("Couldn't open user-defined paths file");
+        .expect("Couldn't open user-defined paths file.");
 
     let paths_file_buf = BufReader::new(shlogger_exta_paths_file);
 
@@ -62,7 +62,7 @@ fn get_files_from_user_defined_paths(file_finder: &mut FileFinder) {
                 }
             }
             Err(_) => println!(
-                "Could not convert path to string on file line: {}",
+                "Could not convert path to string on file line: {}.",
                 line_num
             ),
         }
