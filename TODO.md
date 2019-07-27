@@ -6,6 +6,8 @@
     - Add applications folder (figure out permissions workaround)
 - Not all results should panic (expect()), the app should continue if some
   things fail.
+- Print error messages after printing log, otherwise, they will most likely be
+  missed as no one will want to scroll for days to see it
 
 ## Nice Additions
 
@@ -13,19 +15,11 @@
   the full path could be displayed with a verbose option)
 - Options to ignore certain files (hidden, items below a size threshold)?
 
-## Things to Ponder
+## Project Cleanup
 
-- Should this use an iterative algorithm over recursion?
-
-## Things to Test
-
-- Test that file sizes are correctly reported by Pretty Bytes, and larger sizes
-  as well
-
-## Code and Project Cleanup
-
-- Get both functions in main to be similar using similar inputs and methods
+- Get both functions called from main to be similar using similar inputs and
+  methods
 - README.md
     - Give more details and clean it up
-    - Add Space Hogger Logger graphic
+    - Add Space Hogger Logger logo
     - Add a screenshot of it in action
