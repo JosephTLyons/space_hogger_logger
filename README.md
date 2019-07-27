@@ -1,8 +1,8 @@
 # space_hogger_logger
 
-## Description
-
 ![Pig Mascot](./images/pig_mascot.png)
+
+## Description
 
 space_hogger_logger is a command-line tool that is similar to
 [Daisy Disk](https://daisydiskapp.com).
@@ -44,3 +44,7 @@ single issue with the tool on my machine, but I've not tested it elsewhere.
 It should be noted that space_hogger_logger does not save any information, it
 merely prints file paths, and their associated file size, to the terminal
 window.
+
+## Artwork
+The space_hogger_logger graphic created by Angie Norrie.  Contact here via her
+email here: angie(dot)norrie13(at)gmail(dot)com
