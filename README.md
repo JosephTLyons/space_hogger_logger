@@ -2,6 +2,8 @@
 
 ## Description
 
+![Pig Mascot](./images/pig_mascot.png)
+
 space_hogger_logger is a command-line tool that is similar to
 [Daisy Disk](https://daisydiskapp.com).
 
