@@ -46,5 +46,5 @@ merely prints file paths, and their associated file size, to the terminal
 window.
 
 ## Artwork
-The space_hogger_logger graphic was created by Angie Norrie.  Contact here via
-her email here: angie(dot)norrie13(at)gmail(dot)com
+The space_hogger_logger graphic was created by Angelica Norrie.  Contact here
+via her email here: polarangieart(at)gmail(dot)com
