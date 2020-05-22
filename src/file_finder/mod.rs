@@ -60,7 +60,7 @@ impl fmt::Display for FileFinder {
             );
 
             match output_string {
-                Ok(_) => {},
+                Ok(_) => {}
                 Err(e) => return Err(e),
             }
         }
