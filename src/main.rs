@@ -58,7 +58,7 @@ fn get_files_from_user_defined_paths(file_finder: &mut FileFinder) {
                 let path = Path::new(&line);
 
                 if path.exists() {
-                    file_finder.add_files_in_dir(&path);
+                    file_finder.add_files_in_dir(path);
                 }
             }
             Err(_) => println!(
