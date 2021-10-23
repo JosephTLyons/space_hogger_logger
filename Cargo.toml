@@ -2,7 +2,7 @@
 name = "space_hogger_logger"
 version = "0.1.0"
 authors = ["Joseph Lyons <josephtlyons@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 directories = "2.0.1"
