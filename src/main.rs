@@ -16,16 +16,16 @@ fn main() {
     println!("{}", file_finder);
 }
 
-fn get_files_from_default_paths(mut file_finder: &mut FileFinder) {
+fn get_files_from_default_paths(file_finder: &mut FileFinder) {
     let user_dirs: UserDirs = UserDirs::new().expect("Couldn't create a UserDirs object.");
 
-    try_to_add_files(&mut file_finder, &user_dirs.audio_dir(), "audio");
-    try_to_add_files(&mut file_finder, &user_dirs.desktop_dir(), "desktop");
-    try_to_add_files(&mut file_finder, &user_dirs.document_dir(), "document");
-    try_to_add_files(&mut file_finder, &user_dirs.download_dir(), "download");
-    try_to_add_files(&mut file_finder, &user_dirs.picture_dir(), "picture");
-    try_to_add_files(&mut file_finder, &user_dirs.public_dir(), "public");
-    try_to_add_files(&mut file_finder, &user_dirs.video_dir(), "video");
+    try_to_add_files(file_finder, &user_dirs.audio_dir(), "audio");
+    try_to_add_files(file_finder, &user_dirs.desktop_dir(), "desktop");
+    try_to_add_files(file_finder, &user_dirs.document_dir(), "document");
+    try_to_add_files(file_finder, &user_dirs.download_dir(), "download");
+    try_to_add_files(file_finder, &user_dirs.picture_dir(), "picture");
+    try_to_add_files(file_finder, &user_dirs.public_dir(), "public");
+    try_to_add_files(file_finder, &user_dirs.video_dir(), "video");
 }
 
 fn try_to_add_files(file_finder: &mut FileFinder, path_option: &Option<&Path>, folder: &str) {

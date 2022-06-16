@@ -52,17 +52,12 @@ impl FileFinder {
 impl fmt::Display for FileFinder {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for file in &self.file_vec {
-            let output_string = writeln!(
+            writeln!(
                 f,
-                "{}{}",
-                format!("{:>12}", bytes_to_units(file.size_in_bytes as f64) + ": "),
+                "{:>12}: {}",
+                bytes_to_units(file.size_in_bytes as f64),
                 file.path
-            );
-
-            match output_string {
-                Ok(_) => {}
-                Err(e) => return Err(e),
-            }
+            )?;
         }
 
         Ok(())
