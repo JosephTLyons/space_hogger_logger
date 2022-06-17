@@ -45,10 +45,7 @@ impl FileFinder {
                 self.recursively_get_files_in_dir(file_path);
             } else {
                 self.file_vec.push(FileObject {
-                    path: file_path
-                        .to_str()
-                        .expect("Could not create &str file path.")
-                        .to_string(),
+                    path: file_path.to_string_lossy().to_string(),
                     size_in_bytes: file_metadata.len(),
                 });
             }
