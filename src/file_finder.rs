@@ -2,9 +2,10 @@ mod file_obj;
 
 use file_obj::FileObject;
 use pretty_bytes::converter::convert as bytes_to_units;
-use std::fmt;
 use std::fs::{read_dir, ReadDir};
+use std::io::ErrorKind::PermissionDenied;
 use std::path::Path;
+use std::{fmt, panic};
 
 pub struct FileFinder {
     file_vec: Vec<FileObject>,
@@ -22,7 +23,17 @@ impl FileFinder {
     }
 
     fn recursively_get_files_in_dir(&mut self, path: &Path) {
-        let dir_file_iter: ReadDir = read_dir(path).expect("Couldn't obtain file iter.");
+        let dir_file_iter: ReadDir = match read_dir(path) {
+            Ok(dir_file_iter) => dir_file_iter,
+            Err(error) => {
+                if error.kind() == PermissionDenied {
+                    // TODO: Log this error somewhere
+                    return;
+                } else {
+                    panic!("{}", error);
+                }
+            }
+        };
 
         for file in dir_file_iter {
             let file = file.expect("Wasn't able to obtain file.");
